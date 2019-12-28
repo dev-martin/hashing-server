@@ -5,7 +5,16 @@ Both server and client implemented in C. Implemented to work on Linux.
 ![GitHub Logo](protocol-msgs.png)
 
 
+**Protocol:**
+
+The protocol between the client and server will use four types of messages: Initialization, Acknowledgement, HashRequest, and HashResponse.The client starts by sending an Initialization message to the server, which informs the server of
+the number of hashing requests that the client will make (denoted by the variable N). Afterwards,
+the client sends N HashRequest messages to the server, where each HashRequest contains the data
+segment to be hashed. The server responds to the Initialization message with an Acknowledgement, which informs the client of the total length of the response. The server responds to each
+HashRequest with a HashResponse that contains the hash of the corresponding data
+
 (Remember to make first)
+
 To run **server**: 
 
 ```server -p <(1)> -s <(2)>```
@@ -30,10 +39,3 @@ Represented as a base-10 integer. Must be specified, and have a value ≥ 0.
 6. -f <File> = The file that the client reads data from for all HashRequests. Must be specified,
 and have enough data to support N requests at the maximum length (specified by -n and
 -smax respectively).
-  
-**Protocol:**
-The protocol between the client and server will use four types of messages: Initialization, Acknowledgement, HashRequest, and HashResponse.The client starts by sending an Initialization message to the server, which informs the server of
-the number of hashing requests that the client will make (denoted by the variable N). Afterwards,
-the client sends N HashRequest messages to the server, where each HashRequest contains the data
-segment to be hashed. The server responds to the Initialization message with an Acknowledgement, which informs the client of the total length of the response. The server responds to each
-HashRequest with a HashResponse that contains the hash of the corresponding data
