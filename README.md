@@ -2,7 +2,7 @@
 Server that concurrently manages clients' files and answers with hashes of file's pieces.
 Both server and client implemented in C. Implemented to work on Linux.
 
-![GitHub Logo](protocol-msgs.jpg)
+![GitHub Logo](protocol-msgs.png)
 
 
 (Remember to make first)
